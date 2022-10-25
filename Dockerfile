@@ -1,14 +1,14 @@
-FROM ttbb/base:jdk17
+FROM shoothzj/base:jdk17
 
-WORKDIR /opt/sh
+WORKDIR /opt
 
-ENV KAFKA_HOME /opt/sh/kafka
+ENV KAFKA_HOME /opt/kafka
 
-ARG version=3.2.1
+ARG version=3.3.1
 
 RUN wget https://downloads.apache.org/kafka/$version/kafka_2.13-$version.tgz && \
-mkdir /opt/sh/kafka && \
-tar -xf /opt/sh/kafka_2.13-$version.tgz -C /opt/sh/kafka --strip-components 1 && \
+mkdir /opt/kafka && \
+tar -xf /opt/kafka_2.13-$version.tgz -C /opt/kafka --strip-components 1 && \
 rm -rf kafka_2.13-$version.tgz
 
-WORKDIR /opt/sh/kafka
+WORKDIR /opt/kafka
